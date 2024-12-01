@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with NEU Artificial Intelligence Club.">
+    <title>Contact Us - NEU Artificial Intelligence Club</title>
+    <style>
+        /* Genel Stil */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            top: 0;
+            left: 0;
+        }
+        .logo {
+            height: 50px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .nav-links a:hover {
+            background: #00ffcc;
+            color: #121212;
+        }
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger-menu span {
+            width: 30px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons img {
+            height: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Video ve Overlay */
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 140%;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -1;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1;
+        }
+
+        /* Contact Cards */
+        .contact-container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 150px auto;
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            padding: 20px;
+        }
+        .contact-card {
+            background: #232323;
+            border: 3px solid #00ffcc;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
+        }
+        .contact-card h2 {
+            font-size: 1.8rem;
+            color: #00ffcc;
+            margin-bottom: 15px;
+        }
+        .contact-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #00ffcc;
+            margin: 10px 0;
+        }
+        .contact-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #fff;
+            margin: 5px 0;
+        }
+        .contact-card a {
+            text-decoration: none;
+            color: #00ffcc;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        .contact-card a img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #232323, #1a1a1a);
+            color: #fff;
+            padding: 40px 60px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            font-size: 14px;
+            z-index: 11;
+            position: relative;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00ffcc, #00e6b3);
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        }
+        footer .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+        }
+        footer .social-links img {
+            height: 35px;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(0.8);
+        }
+        footer .social-links img:hover {
+            transform: scale(1.2);
+            filter: brightness(1);
+        }
+        footer .center-text {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            justify-self: center;
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            header {
+                background: #232323;
+                border-bottom: 5px solid #00ffcc;
+                box-shadow: 0 0 10px #00ffcc;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .video-background {
+                width: auto;
+                height: calc(100vh - 120px);
+                object-fit: cover;
+                content: url('vertical-background-video.mp4');
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="left">
+            <img src="logo.png" alt="NEU AI Club Logo" class="logo">
+        </div>
+        <nav>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="https://chat.whatsapp.com/HuLxflWycDHDMlMRMwod0C" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.instagram.com/neu.aiclub/profilecard/?igsh=MW5nd2Fobm96a2NyZw==" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/near-east-university-artificial-intelligence-club-31173433b/" target="_blank">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+    </header>
+
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-background">
+        <source src="background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Contact Cards -->
+    <div class="contact-container">
+        <div class="contact-card">
+            <h2>To Contact In English</h2>
+            <img src="profile.jpg" alt="Mahdi Alsharooh">
+            <p><strong>Mahdi Alsharooh</strong></p>
+            <p><a href="https://wa.me/905488424037" target="_blank"><img src="whatsapp.png" alt="WhatsApp Icon">+90 548 842 40 37</a></p>
+            <p><a href="mailto:neuartificialintelligenceclub@gmail.com">neuartificialintelligenceclub@gmail.com</a></p>
+        </div>
+        <div class="contact-card">
+            <h2>To Contact In Turkish</h2>
+            <img src="profile.jpg" alt="Ömer Yavuz">
+            <p><strong>Ömer Yavuz</strong></p>
+            <p><a href="https://wa.me/905488224328" target="_blank"><img src="whatsapp.png" alt="WhatsApp Icon">+90 548 822 43 28</a></p>
+            <p><a href="mailto:neuartificialintelligenceclub@gmail.com">neuartificialintelligenceclub@gmail.com</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://chat.whatsapp.com/HuLxflWycDHDMlMRMwod0C" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.instagram.com/neu.aiclub/profilecard/?igsh=MW5nd2Fobm96a2NyZw==" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/near-east-university-artificial-intelligence-club-31173433b/" target="_blank">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+        <div class="center-text">
+            All Rights Reserved © 2024 NEU Artificial Intelligence Club
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
