@@ -55,7 +55,7 @@
             transition: background 0.3s ease;
         }
         .nav-links a:hover {
-            background: #00ffcc;
+            background: #6F2036;
             color: #121212;
         }
         .hamburger-menu {
@@ -88,7 +88,7 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 140%; /* Ölçek büyütüldü */
+            width: 140%;
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
@@ -108,30 +108,30 @@
         .events-container {
             position: relative;
             z-index: 2;
-            max-width: 1000px;
-            margin: 150px auto;
+            max-width: 900px; /* Yanlardan biraz daraltıldı */
+            margin: 120px auto; /* Üstten biraz daha yakınlaştırıldı */
             display: grid;
-            gap: 30px;
+            gap: 20px; /* Kartlar arası boşluk biraz azaltıldı */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             padding: 20px;
         }
         .event-card {
             background: #232323;
-            border: 3px solid #00ffcc;
+            border: 3px solid #6F2036;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
-            padding: 20px;
+            box-shadow: 0 0 20px rgba(111, 32, 54, 0.6);
+            padding: 15px; /* Kartın iç dolgusu biraz küçültüldü */
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
         .event-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
+            box-shadow: 0 0 30px rgba(111, 32, 54, 0.8);
         }
         .event-card h2 {
             font-size: 1.8rem;
-            color: #00ffcc;
+            color: #6F2036;
             margin-bottom: 15px;
         }
         .event-card p {
@@ -144,7 +144,7 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            border: 2px solid #00ffcc;
+            border: 2px solid #6F2036;
             margin-top: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
@@ -156,10 +156,10 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
             width: 300px;
-            background: #00ffcc;
+            background: #6F2036;
             border: 3px solid #232323;
             border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
+            box-shadow: 0 0 30px rgba(111, 32, 54, 0.8);
             padding: 20px;
             z-index: 100;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -184,7 +184,7 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            border: 2px solid #00ffcc;
+            border: 2px solid #6F2036;
         }
         .popup .close-btn {
             position: absolute;
@@ -201,7 +201,7 @@
         }
         .popup .close-btn:hover {
             transform: scale(1.2);
-            background: #00ffcc;
+            background: #6F2036;
             color: #232323;
         }
 
@@ -209,8 +209,8 @@
         @media (max-width: 768px) {
             header {
                 background: #232323;
-                border-bottom: 5px solid #00ffcc;
-                box-shadow: 0 0 10px #00ffcc;
+                border-bottom: 5px solid #6F2036;
+                box-shadow: 0 0 10px #6F2036;
             }
             .hamburger-menu {
                 display: flex;
@@ -256,8 +256,8 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #00ffcc, #00e6b3);
-            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            background: linear-gradient(90deg, #6F2036, #6F2036);
+            box-shadow: 0 0 10px #6F2036, 0 0 20px #6F2036;
         }
         footer .social-links {
             display: flex;
@@ -304,13 +304,13 @@
             </ul>
         </nav>
         <div class="social-icons">
-            <a href="https://chat.whatsapp.com/HuLxflWycDHDMlMRMwod0C" target="_blank">
+            <!-- <a href="https://chat.whatsapp.com/HuLxflWycDHDMlMRMwod0C" target="_blank">
                 <img src="whatsapp.png" alt="WhatsApp">
-            </a>
+            </a> -->
             <a href="https://www.instagram.com/neu.aiclub/profilecard/?igsh=MW5nd2Fobm96a2NyZw==" target="_blank">
                 <img src="instagram.png" alt="Instagram">
             </a>
-            <a href="https://www.linkedin.com/in/near-east-university-artificial-intelligence-club-31173433b/" target="_blank">
+            <a href="www.linkedin.com/in/neuaiclub" target="_blank">
                 <img src="linkedin.png" alt="LinkedIn">
             </a>
         </div>
@@ -325,6 +325,7 @@
 
     <!-- Events Section -->
     <div class="events-container">
+        <!-- Sadece "The First NEU Engineering Knowledge Contest" Kartı Bırakıldı -->
         <div class="event-card" data-title="The First NEU Engineering Knowledge Contest" data-description="Join us for the ultimate engineering challenge, where participants compete to demonstrate their knowledge and problem-solving skills in various engineering fields." data-image="poster.jpg">
             <h2>The First NEU Engineering Knowledge Contest</h2>
             <p>
@@ -332,14 +333,6 @@
                 their knowledge and problem-solving skills in various engineering fields.
             </p>
             <img src="poster.jpg" alt="The First NEU Engineering Knowledge Contest Poster">
-        </div>
-        <div class="event-card" data-title="AI For Everyone Conference" data-description="A conference designed to make AI accessible to everyone. Learn about the basics of AI, its applications, and how it is shaping the future across industries." data-image="poster.jpg">
-            <h2>AI For Everyone Conference</h2>
-            <p>
-                A conference designed to make AI accessible to everyone. Learn about the basics of AI, 
-                its applications, and how it is shaping the future across industries.
-            </p>
-            <img src="poster.jpg" alt="AI For Everyone Conference Poster">
         </div>
     </div>
 
@@ -354,13 +347,13 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://chat.whatsapp.com/HuLxflWycDHDMlMRMwod0C" target="_blank">
+            <!-- <a href="https://chat.whatsapp.com/HuLxflWycDHDMlMRMwod0C" target="_blank">
                 <img src="whatsapp.png" alt="WhatsApp">
-            </a>
+            </a> -->
             <a href="https://www.instagram.com/neu.aiclub/profilecard/?igsh=MW5nd2Fobm96a2NyZw==" target="_blank">
                 <img src="instagram.png" alt="Instagram">
             </a>
-            <a href="https://www.linkedin.com/in/near-east-university-artificial-intelligence-club-31173433b/" target="_blank">
+            <a href="www.linkedin.com/in/neuaiclub" target="_blank">
                 <img src="linkedin.png" alt="LinkedIn">
             </a>
         </div>
